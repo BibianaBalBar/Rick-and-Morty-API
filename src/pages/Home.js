@@ -20,14 +20,20 @@ const Home = () => {
   console.log(characters)
   return (
     <div>
-      {isLoading ? <p>Loading</p> :  characters.map((char) => (
-        <Character 
-          name={char.name}
-          image={char.image}
-          location={char.location.name}
-          key={char.id}
-        />
-      ))}
+      <h1>Rick and Morty</h1>
+      <div className="cards">        
+        {isLoading ? <p>Loading</p> :  characters.map((char) => (
+          <Character 
+            name={char.name}
+            image={char.image}
+            location={char.location.name}
+            origin={char.origin.name}
+            species={char.species}
+            status={char.status}
+            key={char.id}
+          />
+        ))}
+      </div>
     </div>
   )
 }

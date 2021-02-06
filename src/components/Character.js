@@ -1,11 +1,14 @@
 import React from 'react'
 
-const Character = ({name, image, location}) => {
+const Character = ({name, image, location, origin, species, status}) => {
   return (
-    <div>
-      <h1>{name}</h1>
+    <div className="card">
+      <h2>{name}</h2>
       <img src={image} alt={name}/>
-      <p>{location}</p>
+      <h3>Location: {location}</h3>
+      <h3>Origin: {origin}</h3>
+      <h3>Species: {species}</h3>
+      <h3>Status: {status}</h3>
     </div>
   )
 }
