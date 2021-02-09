@@ -48,11 +48,12 @@ const Home = () => {
             status={char.status}
             key={char.id}
           />
-        ))}
-        { info.prev !== null ? <button onClick={onClickPrevious}>Previous Page</button> : '' }
-        { info.next !== null ? <button onClick={onClickNext}>Next Page</button> : '' }
-        
+        ))}        
       </div>
+      <div className="pagesButtons">
+          { info.prev !== null ? <button onClick={onClickPrevious}>Previous Page</button> : '' }
+          { info.next !== null ? <button onClick={onClickNext}>Next Page</button> : '' }
+        </div> 
     </div>
   )
 }
