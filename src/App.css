@@ -6,41 +6,53 @@
 
 body {
   font-family: "Nanum Gothic", sans-serif;
-  padding: 3rem;
+  padding: 0 5rem 3rem 5rem;
 }
 
-h1 {
+.title {
   text-align: center;
+}
+
+.title h1 {
   font-size: 6.5rem;
+  padding-top: 3rem;
   padding-bottom: 4rem;
   color: yellowgreen;
   font-family: "Creepster", cursive;
+  letter-spacing: 0.3rem;
+  position: fixed;
+  background: rgb(255, 255, 255);
+  width: 100%;
+  text-shadow: 20px 20px 15px rgba(105, 104, 104, 0.75);
 }
 
 .cards {
+  padding-top: 16rem;
   min-height: 50vh;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   grid-column-gap: 3rem;
-  grid-row-gap: 5rem;
+  grid-row-gap: 6rem;
 }
 
 .card {
   border: solid 1px black;
-  border-radius: 7%;
+  border-radius: 5%;
   text-align: center;
   background: black;
   color: white;
   padding: 1rem;
+  box-shadow: 22px 22px 20px 0px rgba(50, 50, 50, 0.75);
+  cursor: pointer;
 }
 
 img {
-  border-radius: 7%;
+  border-radius: 5%;
 }
 
 h2 {
   font-family: "Creepster", cursive;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.3rem;
   font-size: 3rem;
   padding: 1rem;
   color: yellowgreen;

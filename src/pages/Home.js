@@ -17,9 +17,25 @@ const Home = () => {
     fetchResults();
   }, [])
   console.log(info)
-  console.log(characters)
+  console.log(characters)  
+    
+  const onClickNext = async () => {       
+    const results = await axios.get(info.next); 
+    setInfo(results.data.info);
+    setCharacters(results.data.results);
+    setIsLoading(false); 
+  };
+
+  const onClickPrevious = async () => {       
+    const results = await axios.get(info.prev); 
+    setInfo(results.data.info);
+    setCharacters(results.data.results);
+    setIsLoading(false); 
+  };
+  
+  
   return (
-    <div>
+    <div className="title">
       <h1>Rick and Morty</h1>
       <div className="cards">        
         {isLoading ? <p>Loading</p> :  characters.map((char) => (
@@ -33,6 +49,9 @@ const Home = () => {
             key={char.id}
           />
         ))}
+        { info.prev !== null ? <button onClick={onClickPrevious}>Previous Page</button> : '' }
+        { info.next !== null ? <button onClick={onClickNext}>Next Page</button> : '' }
+        
       </div>
     </div>
   )
