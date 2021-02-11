@@ -24,6 +24,11 @@ body {
   background: rgb(255, 255, 255);
   width: 100%;
   text-shadow: 20px 20px 15px rgba(105, 104, 104, 0.75);
+  transition: all 0.5s ease-in-out;
+}
+
+.title h1:hover {
+  font-size: 8rem;
 }
 
 .cards {
@@ -56,6 +61,7 @@ h2 {
   font-size: 3rem;
   padding: 1rem;
   color: yellowgreen;
+  transition: all 0.5s ease-in-out;
 }
 
 h2:hover {
@@ -85,6 +91,7 @@ h3 {
   padding: 1rem;
   border-radius: 10%;
   cursor: pointer;
+  transition: all 0.5s ease-in-out;
 }
 
 .pagesButtons button:hover {
@@ -98,13 +105,14 @@ h3 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(255, 255, 255, 0.75);
+  transition: all 0.5s ease-in-out;
 }
 .backdrop img {
   display: block;
   max-width: 100%;
   height: 50%;
   margin: 15% auto;
-  box-shadow: 15px 18px 18px rgba(0, 0, 0, 0.5);
-  border: 1px solid white;
+  box-shadow: 25px 25px 15px 2px rgba(0, 0, 0, 0.7);
+  border: 2px solid black;
 }
