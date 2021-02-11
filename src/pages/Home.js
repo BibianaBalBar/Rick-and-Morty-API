@@ -1,11 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import Character from '../components/Character'
+import Character from '../components/Character';
+import Modal from '../components/Modal';
 
 const Home = () => {
   const [ info, setInfo ] = useState({});
   const [ characters, setCharacters ] = useState({});
   const [ isLoading, setIsLoading] = useState(true);
+  const [selectedImg, setSelectedImg] = useState(null);
 
   useEffect( () =>  {
     const fetchResults = async () => {
@@ -19,14 +21,14 @@ const Home = () => {
   console.log(info)
   console.log(characters)  
     
-  const onClickNext = async () => {       
+  const nextPageHandler = async () => {       
     const results = await axios.get(info.next); 
     setInfo(results.data.info);
     setCharacters(results.data.results);
     setIsLoading(false); 
   };
 
-  const onClickPrevious = async () => {       
+  const previousPageHandler = async () => {       
     const results = await axios.get(info.prev); 
     setInfo(results.data.info);
     setCharacters(results.data.results);
@@ -47,12 +49,16 @@ const Home = () => {
             species={char.species}
             status={char.status}
             key={char.id}
+            setSelectedImg={setSelectedImg}
           />
-        ))}        
+        ))}  
+        { selectedImg && (
+          <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg}/>
+        )}      
       </div>
       <div className="pagesButtons">
-          { info.prev !== null ? <button onClick={onClickPrevious}>Previous Page</button> : '' }
-          { info.next !== null ? <button onClick={onClickNext}>Next Page</button> : '' }
+          { info.prev !== null ? <button onClick={previousPageHandler}>Previous Page</button> : '' }
+          { info.next !== null ? <button onClick={nextPageHandler}>Next Page</button> : '' }
         </div> 
     </div>
   )
