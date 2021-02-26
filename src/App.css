@@ -6,7 +6,7 @@
 
 body {
   font-family: "Nanum Gothic", sans-serif;
-  padding: 0 5rem 3rem 5rem;
+  padding: 3rem 5rem;
   scroll-behavior: smooth;
 }
 
@@ -16,7 +16,7 @@ body {
 
 .title h1 {
   font-size: 6.5rem;
-  padding-top: 4rem;
+  padding-top: 1rem;
   padding-bottom: 4rem;
   color: yellowgreen;
   font-family: "Creepster", cursive;
@@ -84,7 +84,6 @@ h2 {
 
 h2:hover {
   color: white;
-  cursor: pointer;
 }
 
 h3 {
@@ -136,8 +135,15 @@ h3 {
 }
 
 @media (max-width: 800px) {
+  body {
+    padding: 0.5rem;
+  }
   .cards {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    box-shadow: none;
   }
 }
 
