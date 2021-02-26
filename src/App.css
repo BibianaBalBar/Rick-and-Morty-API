@@ -28,7 +28,25 @@ body {
 }
 
 .title h1:hover {
-  font-size: 8rem;
+  font-size: 7rem;
+}
+
+.search {
+  height: 100px;
+}
+
+input[type="text"] {
+  display: block;
+  padding: 0.5rem;
+  font-size: 1.6rem;
+  border: 0;
+  border-radius: 5px;
+  width: 60%;
+  margin: auto;
+  outline: none;
+  background-color: yellowgreen;
+  color: white;
+  box-shadow: 20px 20px 15px rgba(105, 104, 104, 0.75);
 }
 
 .cards {
@@ -42,7 +60,7 @@ body {
 
 .card {
   border: solid 1px black;
-  border-radius: 5%;
+  border-radius: 2%;
   text-align: center;
   background: black;
   color: white;
@@ -51,7 +69,7 @@ body {
 }
 
 img {
-  border-radius: 5%;
+  border-radius: 2%;
   cursor: pointer;
 }
 
@@ -89,7 +107,7 @@ h3 {
   letter-spacing: 0.1rem;
   font-size: 1.5rem;
   padding: 1rem;
-  border-radius: 10%;
+  border-radius: 5%;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 }
@@ -115,4 +133,16 @@ h3 {
   margin: 15% auto;
   box-shadow: 25px 25px 15px 2px rgba(0, 0, 0, 0.7);
   border: 2px solid black;
+}
+
+@media (max-width: 800px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }

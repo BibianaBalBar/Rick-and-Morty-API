@@ -2,22 +2,26 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Character from '../components/Character';
 import Modal from '../components/Modal';
+import Search from '../components/Search';
 
 const Home = () => {
   const [ info, setInfo ] = useState({});
   const [ characters, setCharacters ] = useState({});
   const [ isLoading, setIsLoading] = useState(true);
   const [selectedImg, setSelectedImg] = useState(null);
+  const [query, setQuery] = useState("");
+
+  
 
   useEffect( () =>  {
     const fetchResults = async () => {
-      const results = await axios.get('https://rickandmortyapi.com/api/character'); 
+      const results = await axios.get(`https://rickandmortyapi.com/api/character/?name=${query}`); 
       setInfo(results.data.info);
       setCharacters(results.data.results);
       setIsLoading(false);
     } 
     fetchResults();
-  }, [])
+  }, [query])
   console.log(info)
   console.log(characters)  
     
@@ -39,6 +43,9 @@ const Home = () => {
   return (
     <div className="title">
       <h1>Rick and Morty</h1>
+      
+      <Search getQuery={(q) => setQuery(q)}/>
+      
       <div className="cards">        
         {isLoading ? <p>Loading</p> :  characters.map((char) => (
           <Character 
