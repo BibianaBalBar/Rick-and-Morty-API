@@ -6,7 +6,7 @@
 
 body {
   font-family: "Nanum Gothic", sans-serif;
-  padding: 3rem 5rem;
+  padding: 3rem 8rem;
   scroll-behavior: smooth;
 }
 
@@ -53,16 +53,16 @@ input[type="text"] {
   padding-top: 3rem;
   min-height: 50vh;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 3rem;
   grid-row-gap: 6rem;
 }
 
 .card {
-  border: solid 1px black;
+  max-width: 500px;
   border-radius: 2%;
   text-align: center;
-  background: black;
+  background: rgb(19, 19, 19);
   color: white;
   padding: 1.2rem;
   box-shadow: 22px 22px 20px 0px rgba(50, 50, 50, 0.75);
@@ -106,7 +106,7 @@ h3 {
   letter-spacing: 0.1rem;
   font-size: 1.5rem;
   padding: 1rem;
-  border-radius: 5%;
+  border-radius: 5px;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 }

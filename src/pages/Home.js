@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Character from '../components/Character';
 import Modal from '../components/Modal';
 import Search from '../components/Search';
+import Spinner from '../components/Spinner';
 
 const Home = () => {
   const [ info, setInfo ] = useState({});
@@ -40,34 +41,37 @@ const Home = () => {
   };
   
   
-  return (
+  return (        
     <div className="title">
       <h1>Rick and Morty</h1>
-      
-      <Search getQuery={(q) => setQuery(q)}/>
-      
+
+      <Search getQuery={(q) => setQuery(q)}/>    
+
       <div className="cards">        
-        {isLoading ? <p>Loading</p> :  characters.map((char) => (
-          <Character 
-            name={char.name}
-            image={char.image}
-            location={char.location.name}
-            origin={char.origin.name}
-            species={char.species}
-            status={char.status}
-            key={char.id}
-            setSelectedImg={setSelectedImg}
-          />
-        ))}  
-        { selectedImg && (
-          <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg}/>
-        )}      
+      {isLoading ? <Spinner /> :  characters.map((char) => (
+        <Character 
+          name={char.name}
+          image={char.image}
+          location={char.location.name}
+          origin={char.origin.name}
+          species={char.species}
+          status={char.status}
+          key={char.id}
+          setSelectedImg={setSelectedImg}
+        />
+      ))} 
+
+      { selectedImg && (
+        <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg}/>
+      )}      
       </div>
+
       <div className="pagesButtons">
-          { info.prev !== null ? <button onClick={previousPageHandler}>Previous Page</button> : '' }
-          { info.next !== null ? <button onClick={nextPageHandler}>Next Page</button> : '' }
-        </div> 
-    </div>
+        { info.prev !== null ? <button onClick={previousPageHandler}>Previous Page</button> : '' }
+        { info.next !== null ? <button onClick={nextPageHandler}>Next Page</button> : '' }
+      </div> 
+      
+    </div>     
   )
 }
 
